@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atelier Management Console | AURA ATELIER</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- Admin Navbar -->
+    <header class="site-header">
+      <div class="nav-wrapper">
+        <a href="/index.html" class="brand-identity">
+          <span class="brand-monogram">⚜</span>
+          <div class="brand-text">
+            <span class="brand-title">AURA</span>
+            <span class="brand-subtitle">ATELIER ADMIN</span>
+          </div>
+        </a>
+        <div class="nav-right">
+          <a href="/shop.html" class="btn-primary-sm" target="_blank"
+            >View Live Store ↗</a
+          >
+          <button
+            id="adminLogoutBtn"
+            class="nav-icon-btn"
+            onclick="logoutAdmin()"
+            title="Logout"
+            style="display: none"
+          >
+            🔒
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Login Gate -->
+    <section id="adminLoginGate" class="admin-login-screen">
+      <div class="admin-login-box">
+        <span class="section-tag">SECURITY CONSOLE</span>
+        <h2>Enter Admin Passcode</h2>
+        <p>
+          Enter your 4-digit master pin to access your fragrance store catalog.
+        </p>
+        <form onsubmit="handleAdminLogin(event)">
+          <input
+            type="password"
+            id="adminPin"
+            placeholder="Enter PIN"
+            maxlength="8"
+            required
+          />
+          <button
+            type="submit"
+            class="btn-gold"
+            style="width: 100%; margin-top: 1.2rem"
+          >
+            Unlock Dashboard
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Main Dashboard -->
+    <main
+      id="adminDashboard"
+      class="admin-dashboard-container"
+      style="display: none"
+    >
+      <div class="admin-grid">
+        <!-- Left: Add New Perfume Form -->
+        <div class="admin-card">
+          <span class="section-tag">CATALOG EXPANSION</span>
+          <h2>Add New Fragrance</h2>
+          <p class="admin-subtext">
+            Fill in the details below to add a brand new perfume to the live
+            store.
+          </p>
+
+          <form
+            id="addPerfumeForm"
+            class="clean-contact-form"
+            onsubmit="handleSaveProduct(event)"
+          >
+            <div class="form-field">
+              <label>Perfume Name *</label>
+              <input
+                type="text"
+                id="pName"
+                placeholder="e.g. Amber Royale"
+                required
+              />
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-field">
+                <label>Category *</label>
+                <select id="pCategory">
+                  <option value="floral">Floral & Rose</option>
+                  <option value="oriental">Oud & Spiced</option>
+                  <option value="woody">Woody & Leather</option>
+                  <option value="fresh">Fresh & Citrus</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label>Price (PKR) *</label>
+                <input
+                  type="number"
+                  id="pPrice"
+                  placeholder="e.g. 4500"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-field">
+                <label>Stock Available *</label>
+                <input
+                  type="number"
+                  id="pStock"
+                  placeholder="e.g. 25"
+                  value="30"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label>Badge Tag</label>
+                <input
+                  type="text"
+                  id="pBadge"
+                  placeholder="e.g. Bestseller / Limited"
+                  value="Exclusive Reserve"
+                />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Short Summary / Notes *</label>
+              <input
+                type="text"
+                id="pSummary"
+                placeholder="e.g. Taif Rose, Smoky Agarwood, Warm Saffron"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label>Detailed Story / Description *</label>
+              <textarea
+                id="pDesc"
+                rows="3"
+                placeholder="Explain the fragrance profile, lasting power, and origin..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-field">
+              <label>Multiple Image Paths / URLs (Comma separated) *</label>
+              <input
+                type="text"
+                id="pImages"
+                placeholder="/images/flora.jpg, /images/hero-bg.jpg, /images/ward.jpg"
+                required
+              />
+              <small
+                style="
+                  font-size: 0.72rem;
+                  color: var(--text-muted);
+                  margin-top: 0.2rem;
+                "
+              >
+                Tip: The first image will be the thumbnail. Write extra photos
+                separated by a comma (,)
+              </small>
+            </div>
+
+            <button type="submit" class="btn-gold admin-submit-btn">
+              + Publish Perfume to Store
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Live Catalog List -->
+        <div class="admin-card">
+          <div class="catalog-header-bar">
+            <div>
+              <span class="section-tag">LIVE INVENTORY</span>
+              <h2>Manage Catalog (<span id="adminTotalCount">0</span>)</h2>
+            </div>
+          </div>
+          <p class="admin-subtext">
+            Click on any product to update prices, stock, edit details, or
+            manage customer reviews.
+          </p>
+
+          <div class="admin-items-list" id="adminProductsContainer">
+            <!-- Injected via JavaScript -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- =========================================================================
+       MODAL 1: EDIT FULL PRODUCT MODAL
+       ========================================================================= -->
+    <div id="editProductModal" class="modal-overlay" style="display: none">
+      <div class="modal-card admin-modal-wide">
+        <button class="modal-close" onclick="closeEditModal()">&times;</button>
+
+        <div class="modal-header">
+          <span class="modal-tag">EDIT DETAILS</span>
+          <h3 class="modal-title">Modify Fragrance</h3>
+        </div>
+
+        <form
+          id="editProductForm"
+          class="clean-contact-form"
+          onsubmit="handleUpdateProduct(event)"
+        >
+          <input type="hidden" id="editProdIndex" />
+
+          <div class="form-field">
+            <label>Perfume Name *</label>
+            <input type="text" id="editName" required />
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-field">
+              <label>Price (PKR) *</label>
+              <input type="number" id="editPrice" required />
+            </div>
+
+            <div class="form-field">
+              <label>Stock Count *</label>
+              <input type="number" id="editStock" required />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label>Badge</label>
+            <input type="text" id="editBadge" />
+          </div>
+
+          <div class="form-field">
+            <label>Summary / Notes *</label>
+            <input type="text" id="editSummary" required />
+          </div>
+
+          <div class="form-field">
+            <label>Full Description *</label>
+            <textarea id="editDesc" rows="3" required></textarea>
+          </div>
+
+          <div class="form-field">
+            <label>Image Gallery (Comma separated) *</label>
+            <input type="text" id="editImages" required />
+          </div>
+
+          <button type="submit" class="btn-gold admin-submit-btn">
+            Save Changes
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+       MODAL 2: REVIEWS MANAGEMENT & DIRECT INLINE REPLY MODAL
+       ========================================================================= -->
+    <div id="reviewsManageModal" class="modal-overlay" style="display: none">
+      <div class="modal-card admin-modal-wide">
+        <button class="modal-close" onclick="closeReviewsModal()">
+          &times;
+        </button>
+
+        <div class="modal-header">
+          <span class="modal-tag">FEEDBACK MODERATION</span>
+          <h3 class="modal-title" id="revModalTitle">Product Reviews</h3>
+        </div>
+
+        <!-- Current Reviews Feed with Inline Reply Forms -->
+        <div class="admin-reviews-list" id="modalReviewsFeed">
+          <!-- Rendered dynamically via JS -->
+        </div>
+      </div>
+    </div>
+
+    <script src="/main.js"></script>
+    <script src="/admin.js"></script>
+  </body>
+</html>

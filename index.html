@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AURA ATELIER | Luxury Long Lasting Perfumes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- =========================================================================
+       LUXURY RESPONSIVE NAVBAR
+       ========================================================================= -->
+    <!-- =========================================================================
+       1. CLEAN MOBILE + DESKTOP NAVBAR
+       ========================================================================= -->
+    <header class="site-header" id="siteHeader">
+      <div class="nav-wrapper">
+        <!-- Left: Mobile Menu Trigger + Brand Logo -->
+        <div class="nav-left-group">
+          <button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            onclick="toggleMobileMenu()"
+            aria-label="Open Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <a href="/index.html" class="brand-identity">
+            <span class="brand-monogram">⚜</span>
+            <div class="brand-text">
+              <span class="brand-title">AURA</span>
+              <span class="brand-subtitle">ATELIER</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Center: Clean Desktop Links -->
+        <nav class="nav-center">
+          <ul class="nav-menu">
+            <li><a href="/index.html" class="nav-item active">Home</a></li>
+            <li><a href="/shop.html" class="nav-item">Shop</a></li>
+            <li><a href="/about.html" class="nav-item">About</a></li>
+            <li><a href="/contact.html" class="nav-item">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Right: Utility Buttons (Mobile par WhatsApp bahar se gayab, sirf drawer mein) -->
+        <div class="nav-right">
+          <button
+            id="theme-toggle"
+            class="nav-icon-btn"
+            aria-label="Toggle Theme"
+            title="Switch Mode"
+          >
+            <span class="theme-icon">☀️</span>
+          </button>
+
+          <button
+            class="nav-icon-btn"
+            onclick="openWishlistDrawer()"
+            aria-label="Open Wishlist"
+            title="View Wishlist"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              ></path>
+            </svg>
+            <span class="badge-count" id="wishlistCount">0</span>
+          </button>
+
+          <button
+            class="nav-icon-btn"
+            onclick="openCartDrawer()"
+            aria-label="Open Bag"
+            title="View Bag"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path
+                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+              ></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="badge-count" id="cartCount">0</span>
+          </button>
+
+          <!-- Sirf Desktop aur Tablet par dikhega -->
+          <a
+            href="https://wa.me/15551234567"
+            target="_blank"
+            class="nav-wa-pill desktop-only-wa"
+          >
+            <span class="wa-dot"></span>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Slide Drawer -->
+    <div
+      class="mobile-drawer-overlay"
+      id="mobileDrawerOverlay"
+      onclick="toggleMobileMenu()"
+    ></div>
+    <aside class="mobile-side-drawer" id="mobileSideDrawer">
+      <div class="mobile-drawer-head">
+        <div class="brand-identity">
+          <span class="brand-monogram">⚜</span>
+          <span class="brand-title">AURA</span>
+        </div>
+        <button
+          class="close-mobile-btn"
+          onclick="toggleMobileMenu()"
+          aria-label="Close Menu"
+        >
+          &times;
+        </button>
+      </div>
+
+      <ul class="mobile-nav-list">
+        <li>
+          <a href="/index.html" class="active" onclick="toggleMobileMenu()"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a href="/shop.html" onclick="toggleMobileMenu()">Shop Collection</a>
+        </li>
+        <li><a href="/about.html" onclick="toggleMobileMenu()">About Us</a></li>
+        <li>
+          <a href="/contact.html" onclick="toggleMobileMenu()"
+            >Contact Concierge</a
+          >
+        </li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <a
+          href="https://wa.me/15551234567"
+          target="_blank"
+          class="mobile-wa-direct-btn"
+        >
+          Chat on WhatsApp 💬
+        </a>
+        <p class="mobile-drawer-note">
+          Fast Express Shipping • 100% Authentic Extrait
+        </p>
+      </div>
+    </aside>
+    <!-- =========================================================================
+       2. HERO SLIDER (Simple English, Non-Stop Smooth Animation)
+       ========================================================================= -->
+    <section class="luxury-hero-container" id="heroSlider">
+      <div class="hero-ambient-orb" id="ambientOrb"></div>
+
+      <div class="slides-stage">
+        <!-- Slide 1: Flora -->
+        <div
+          class="hero-slide active"
+          data-slide="0"
+          data-theme-color="rgba(197, 137, 108, 0.28)"
+        >
+          <div class="slide-content-grid">
+            <div class="slide-text-col">
+              <span class="slide-eyebrow">BESTSELLING SCENT</span>
+              <h1 class="slide-headline">
+                Flora No. 04 <br /><em class="serif-accent">Rose & Amber</em>
+              </h1>
+              <p class="slide-narrative">
+                A fresh and sweet blend of fresh Bulgarian roses, soft white
+                amber, and warm vanilla. Very smooth and lasts all day long.
+              </p>
+              <div class="slide-notes-chips">
+                <span class="chip">Damask Rose</span>
+                <span class="chip">White Amber</span>
+                <span class="chip">Sweet Vanilla</span>
+              </div>
+              <div class="slide-action-row">
+                <button
+                  class="btn-hero-primary"
+                  onclick="
+                    addToCart(
+                      'flora-04',
+                      'Flora No. 04',
+                      3800,
+                      '50ml',
+                      '/images/flora.jpg',
+                    )
+                  "
+                >
+                  Add to Cart • Rs. 3,800
+                </button>
+                <a href="/product-flora.html" class="btn-hero-secondary"
+                  >View Details →</a
+                >
+              </div>
+            </div>
+            <div class="slide-visual-col">
+              <div class="bottle-3d-chassis">
+                <div class="bottle-radial-halo"></div>
+                <img
+                  src="/images/flora.jpg"
+                  alt="Flora Perfume Bottle"
+                  class="bottle-3d-image"
+                  onerror="this.src = '/images/hero-bg.jpg'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Ward Royale -->
+        <div
+          class="hero-slide"
+          data-slide="1"
+          data-theme-color="rgba(212, 175, 106, 0.35)"
+        >
+          <div class="slide-content-grid">
+            <div class="slide-text-col">
+              <span class="slide-eyebrow">ROYAL OUD EDITION</span>
+              <h1 class="slide-headline">
+                Ward Royale <br /><em class="serif-accent">Taif Rose & Oud</em>
+              </h1>
+              <p class="slide-narrative">
+                Made with pure Taif mountain rose oil and aged rich agarwood
+                (oud). A rich and royal fragrance for special events.
+              </p>
+              <div class="slide-notes-chips">
+                <span class="chip">Mountain Rose</span>
+                <span class="chip">Rich Oud</span>
+                <span class="chip">Warm Saffron</span>
+              </div>
+              <div class="slide-action-row">
+                <button
+                  class="btn-hero-primary"
+                  onclick="
+                    addToCart(
+                      'ward-royale',
+                      'Ward Royale',
+                      4200,
+                      '50ml',
+                      '/images/ward.jpg',
+                    )
+                  "
+                >
+                  Add to Cart • Rs. 4,200
+                </button>
+                <a href="/product-ward.html" class="btn-hero-secondary"
+                  >View Details →</a
+                >
+              </div>
+            </div>
+            <div class="slide-visual-col">
+              <div class="bottle-3d-chassis">
+                <div class="bottle-radial-halo"></div>
+                <img
+                  src="/images/ward.jpg"
+                  alt="Ward Royale Perfume Bottle"
+                  class="bottle-3d-image"
+                  onerror="this.src = '/images/ward_bottle1.jpg'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Oud Noir -->
+        <div
+          class="hero-slide"
+          data-slide="2"
+          data-theme-color="rgba(148, 100, 52, 0.35)"
+        >
+          <div class="slide-content-grid">
+            <div class="slide-text-col">
+              <span class="slide-eyebrow">INTENSE SMOKY WOODS</span>
+              <h1 class="slide-headline">
+                Oud Noir <br /><em class="serif-accent">Smoky Leather</em>
+              </h1>
+              <p class="slide-narrative">
+                A bold mix of dark agarwood, leather, and roasted woods. Very
+                strong projection that easily stays for more than 16 hours.
+              </p>
+              <div class="slide-notes-chips">
+                <span class="chip">Pure Agarwood</span>
+                <span class="chip">Soft Leather</span>
+                <span class="chip">Cedarwood</span>
+              </div>
+              <div class="slide-action-row">
+                <button
+                  class="btn-hero-primary"
+                  onclick="
+                    addToCart(
+                      'oud-noir',
+                      'Oud Noir Absolu',
+                      5500,
+                      '50ml',
+                      '/images/ingredients-oud.jpg',
+                    )
+                  "
+                >
+                  Add to Cart • Rs. 5,500
+                </button>
+                <a href="/shop.html" class="btn-hero-secondary"
+                  >View All Perfumes →</a
+                >
+              </div>
+            </div>
+            <div class="slide-visual-col">
+              <div class="bottle-3d-chassis">
+                <div class="bottle-radial-halo"></div>
+                <img
+                  src="/images/ingredients-oud.jpg"
+                  alt="Oud Noir Bottle"
+                  class="bottle-3d-image"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls Bar -->
+      <div class="hero-controls-bar">
+        <div class="hero-arrows">
+          <button class="arrow-btn" id="heroPrev" aria-label="Previous Slide">
+            ‹
+          </button>
+          <button class="arrow-btn" id="heroNext" aria-label="Next Slide">
+            ›
+          </button>
+        </div>
+
+        <div class="hero-indicators">
+          <button class="indicator-dot active" data-index="0">
+            <span>01</span> Flora
+          </button>
+          <button class="indicator-dot" data-index="1">
+            <span>02</span> Ward Royale
+          </button>
+          <button class="indicator-dot" data-index="2">
+            <span>03</span> Oud Noir
+          </button>
+        </div>
+
+        <div class="hero-timer-track">
+          <div class="hero-timer-fill" id="heroTimerFill"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+       3. PERKS STRIP
+       ========================================================================= -->
+    <section class="perks-strip">
+      <div class="perk-item">
+        <span class="perk-title">Extrait Concentration</span>
+        <span class="perk-detail">35% Pure Perfume Oil • Stays 16+ Hours</span>
+      </div>
+      <div class="perk-divider"></div>
+      <div class="perk-item">
+        <span class="perk-title">Real Ingredients</span>
+        <span class="perk-detail">Natural Flowers & Real Aged Oud Oils</span>
+      </div>
+      <div class="perk-divider"></div>
+      <div class="perk-item">
+        <span class="perk-title">Fast Free Shipping</span>
+        <span class="perk-detail"
+          >Safe Delivery at Your Doorstep in 2-3 Days</span
+        >
+      </div>
+    </section>
+
+    <!-- =========================================================================
+       4. FEATURED PRODUCTS (Add to Cart & Wishlist on each card)
+       ========================================================================= -->
+    <section id="featured" class="section featured-section">
+      <div class="section-header">
+        <span class="section-tag">POPULAR SCENTS</span>
+        <h2 class="section-title">Customer Favorites</h2>
+        <p class="section-sub">
+          Our most loved everyday perfumes with long lasting performance.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Card 1: Flora -->
+        <article class="product-card">
+          <div class="card-badge">Bestseller</div>
+          <button
+            class="wishlist-heart-btn"
+            onclick="
+              toggleWishlist(
+                'flora-04',
+                'Flora No. 04',
+                3800,
+                '/images/flora.jpg',
+              )
+            "
+            title="Save to wishlist"
+          >
+            ♥
+          </button>
+          <div class="card-image-wrap">
+            <img
+              src="/images/flora.jpg"
+              alt="Flora No. 04"
+              class="product-img"
+              onerror="this.src = '/images/hero-bg.jpg'"
+            />
+            <div class="card-quick-actions">
+              <button
+                class="btn-whatsapp-order"
+                onclick="
+                  addToCart(
+                    'flora-04',
+                    'Flora No. 04',
+                    3800,
+                    '50ml',
+                    '/images/flora.jpg',
+                  )
+                "
+              >
+                + Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="product-category">FLORAL • SWEET • ELEGANT</span>
+            <h3 class="product-name">
+              <a href="/product-flora.html">Flora No. 04</a>
+            </h3>
+            <p class="product-notes-summary">
+              Bulgarian Rose, White Amber, Sweet Vanilla
+            </p>
+            <div class="product-footer">
+              <span class="product-price">Rs. 3,800 <small>50ml</small></span>
+              <a href="/product-flora.html" class="btn-view">View Details →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Ward Royale -->
+        <article class="product-card">
+          <div class="card-badge">Royal Edition</div>
+          <button
+            class="wishlist-heart-btn"
+            onclick="
+              toggleWishlist(
+                'ward-royale',
+                'Ward Royale',
+                4200,
+                '/images/ward.jpg',
+              )
+            "
+            title="Save to wishlist"
+          >
+            ♥
+          </button>
+          <div class="card-image-wrap">
+            <img
+              src="/images/ward.jpg"
+              alt="Ward Royale"
+              class="product-img"
+              onerror="this.src = '/images/ward_bottle1.jpg'"
+            />
+            <div class="card-quick-actions">
+              <button
+                class="btn-whatsapp-order"
+                onclick="
+                  addToCart(
+                    'ward-royale',
+                    'Ward Royale',
+                    4200,
+                    '50ml',
+                    '/images/ward.jpg',
+                  )
+                "
+              >
+                + Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="product-category">ORIENTAL • SPICED • OUD</span>
+            <h3 class="product-name">
+              <a href="/product-ward.html">Ward Royale</a>
+            </h3>
+            <p class="product-notes-summary">
+              Taif Mountain Rose, Smoky Oud, Golden Saffron
+            </p>
+            <div class="product-footer">
+              <span class="product-price">Rs. 4,200 <small>50ml</small></span>
+              <a href="/product-ward.html" class="btn-view">View Details →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Oud Noir -->
+        <article class="product-card">
+          <div class="card-badge">Strong Oud</div>
+          <button
+            class="wishlist-heart-btn"
+            onclick="
+              toggleWishlist(
+                'oud-noir',
+                'Oud Noir Absolu',
+                5500,
+                '/images/ingredients-oud.jpg',
+              )
+            "
+            title="Save to wishlist"
+          >
+            ♥
+          </button>
+          <div class="card-image-wrap">
+            <img
+              src="/images/ingredients-oud.jpg"
+              alt="Oud Noir"
+              class="product-img"
+            />
+            <div class="card-quick-actions">
+              <button
+                class="btn-whatsapp-order"
+                onclick="
+                  addToCart(
+                    'oud-noir',
+                    'Oud Noir Absolu',
+                    5500,
+                    '50ml',
+                    '/images/ingredients-oud.jpg',
+                  )
+                "
+              >
+                + Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="product-category">WOODY • LEATHER • INTENSE</span>
+            <h3 class="product-name">
+              <a href="/shop.html">Oud Noir Absolu</a>
+            </h3>
+            <p class="product-notes-summary">
+              Real Agarwood, Dark Leather, Warm Cedar
+            </p>
+            <div class="product-footer">
+              <span class="product-price">Rs. 5,500 <small>50ml</small></span>
+              <a href="/shop.html" class="btn-view">View Details →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- View All Button -->
+      <div class="view-all-wrapper">
+        <a href="/shop.html" class="btn-view-all">
+          <span>View All Perfumes in Shop</span>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <p class="view-all-hint">
+          Check out all 6 fragrances with filters by scent, price, and category.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+       5. SCENT PYRAMID SECTION (Simple Explanation)
+       ========================================================================= -->
+    <section class="section notes-story-section">
+      <div class="notes-container">
+        <div class="notes-narrative">
+          <span class="section-tag">HOW PERFUME WORKS</span>
+          <h2 class="section-title">The Three Scent Stages</h2>
+          <p class="notes-sec-p">
+            A good perfume changes gently over time on your skin. Here is how
+            our scents unfold throughout the day:
+          </p>
+
+          <div class="notes-breakdown">
+            <div class="note-layer">
+              <div class="note-layer-icon">01</div>
+              <div>
+                <h4>First Smell (0 to 30 mins)</h4>
+                <p>
+                  Fresh bergamot citrus and soft spices you smell right after
+                  spraying.
+                </p>
+              </div>
+            </div>
+            <div class="note-layer">
+              <div class="note-layer-icon">02</div>
+              <div>
+                <h4>Middle Scent (2 to 7 hours)</h4>
+                <p>
+                  The main body of fresh roses, jasmine, and warm lavender
+                  flowers.
+                </p>
+              </div>
+            </div>
+            <div class="note-layer">
+              <div class="note-layer-icon">03</div>
+              <div>
+                <h4>Base Note (8 to 18 hours)</h4>
+                <p>
+                  Deep amber, sandalwood, and vanilla that stay on your clothes
+                  all day.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-visual-card">
+          <img
+            src="/images/hero-bg.jpg"
+            alt="Perfume mixing"
+            class="notes-img"
+          />
+          <div class="experience-badge">
+            <span class="badge-num">90 Days</span>
+            <span class="badge-text">Cold-Cured Aging for Maximum Lasting</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+       6. REVIEWS SECTION
+       ========================================================================= -->
+    <section class="section testimonials-section">
+      <div class="section-header">
+        <span class="section-tag">REVIEWS</span>
+        <h2 class="section-title">What Our Customers Say</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="quote">
+            "Ward Royale has incredible lasting power. I sprayed it in the
+            morning and could still smell it on my jacket the next day. The rose
+            and oud balance is perfect."
+          </p>
+          <span class="author-name">— Daniyal H.</span>
+          <span class="author-tag">Verified Buyer</span>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="quote">
+            "Flora No. 04 is my everyday favorite now. It is sweet and very
+            classy without being too sharp. Got compliments from friends right
+            away."
+          </p>
+          <span class="author-name">— Sarah M.</span>
+          <span class="author-tag">Verified Buyer</span>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="quote">
+            "Ordered on WhatsApp and got it delivered within 2 days with Cash on
+            Delivery. Beautiful packaging and completely genuine perfume."
+          </p>
+          <span class="author-name">— Hamza K.</span>
+          <span class="author-tag">Verified Buyer</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+       7. WHATSAPP HELP BANNER
+       ========================================================================= -->
+    <section class="concierge-banner">
+      <div class="concierge-content">
+        <span class="section-tag">NEED HELP?</span>
+        <h2>Not Sure Which One to Buy?</h2>
+        <p>
+          Send us a quick message on WhatsApp. Tell us what kind of scents you
+          like (sweet, woody, fresh, or oud) and we will help you pick the best
+          one.
+        </p>
+        <a
+          href="https://wa.me/15551234567?text=Hello%2C%20can%20you%20help%20me%20choose%20the%20best%20perfume%3F"
+          target="_blank"
+          class="btn-gold"
+        >
+          Chat with Us on WhatsApp 💬
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+       8. CART DRAWER (Sliding Panel with All Selected Items + WhatsApp Checkout)
+       ========================================================================= -->
+    <div
+      class="drawer-overlay"
+      id="cartOverlay"
+      onclick="closeCartDrawer()"
+    ></div>
+    <aside class="side-drawer" id="cartDrawer">
+      <div class="drawer-top">
+        <h3>Your Shopping Bag (<span id="cartDrawerCount">0</span>)</h3>
+        <button class="close-drawer-btn" onclick="closeCartDrawer()">
+          &times;
+        </button>
+      </div>
+
+      <!-- Items List -->
+      <div class="drawer-items-list" id="cartItemsContainer">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- Drawer Bottom Summary -->
+      <div class="drawer-footer-checkout">
+        <div class="cart-total-row">
+          <span>Total Amount:</span>
+          <strong id="cartTotalPrice">Rs. 0</strong>
+        </div>
+        <button
+          class="btn-whatsapp-confirm"
+          onclick="checkoutCartViaWhatsApp()"
+        >
+          Order All Items on WhatsApp 💬
+        </button>
+        <small class="whatsapp-note"
+          >Clicking will open WhatsApp with all items, quantities, and the total
+          amount ready!</small
+        >
+      </div>
+    </aside>
+
+    <!-- =========================================================================
+       9. WISHLIST DRAWER (Saved Items List)
+       ========================================================================= -->
+    <div
+      class="drawer-overlay"
+      id="wishlistOverlay"
+      onclick="closeWishlistDrawer()"
+    ></div>
+    <aside class="side-drawer" id="wishlistDrawer">
+      <div class="drawer-top">
+        <h3>Your Saved Perfumes (<span id="wishlistDrawerCount">0</span>)</h3>
+        <button class="close-drawer-btn" onclick="closeWishlistDrawer()">
+          &times;
+        </button>
+      </div>
+
+      <div class="drawer-items-list" id="wishlistItemsContainer">
+        <!-- Injected via JavaScript -->
+      </div>
+    </aside>
+
+    <!-- =========================================================================
+       10. FOOTER
+       ========================================================================= -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <span class="logo-main">AURA</span>
+          <p class="footer-about">
+            High quality long-lasting perfumes made with rich oils and beautiful
+            bottles. Safe and fast delivery across the country.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/shop.html">All Perfumes</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Help</h4>
+          <p>Email: info@fragrance.com</p>
+          <p>Phone: +1 (555) 123-4567</p>
+          <p>Cash on Delivery Available</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AURA ATELIER. All Rights Reserved.</p>
+        <p class="developer-credit">
+          Crafted with precision by
+          <a
+            href="https://sanajaved-dev.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sana Javed
+          </a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="/main.js"></script>
+  </body>
+</html>

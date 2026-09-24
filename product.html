@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="pageTitle">Perfume Details | AURA ATELIER</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- =========================================================================
+       1. NAVBAR
+       ========================================================================= -->
+    <!-- =========================================================================
+       1. RESPONSIVE NAVBAR (Shop Page)
+       ========================================================================= -->
+    <header class="site-header" id="siteHeader">
+      <div class="nav-wrapper">
+        <!-- Left: Mobile Menu Trigger + Brand Logo -->
+        <div class="nav-left-group">
+          <button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            onclick="toggleMobileMenu()"
+            aria-label="Open Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <a href="/index.html" class="brand-identity">
+            <span class="brand-monogram">⚜</span>
+            <div class="brand-text">
+              <span class="brand-title">AURA</span>
+              <span class="brand-subtitle">ATELIER</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Center: Clean Desktop Links -->
+        <nav class="nav-center">
+          <ul class="nav-menu">
+            <li><a href="/index.html" class="nav-item">Home</a></li>
+            <li><a href="/shop.html" class="nav-item active">Shop</a></li>
+            <li><a href="/about.html" class="nav-item">About</a></li>
+            <li><a href="/contact.html" class="nav-item">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Right: Utility Buttons -->
+        <div class="nav-right">
+          <button
+            id="theme-toggle"
+            class="nav-icon-btn"
+            aria-label="Toggle Theme"
+            title="Switch Theme"
+          >
+            <span class="theme-icon">☀️</span>
+          </button>
+
+          <button
+            class="nav-icon-btn"
+            onclick="openWishlistDrawer()"
+            title="View Wishlist"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              ></path>
+            </svg>
+            <span class="badge-count" id="wishlistCount">0</span>
+          </button>
+
+          <button
+            class="nav-icon-btn"
+            onclick="openCartDrawer()"
+            title="View Cart"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path
+                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+              ></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="badge-count" id="cartCount">0</span>
+          </button>
+
+          <!-- Desktop par dikhega, mobile par clean rahega -->
+          <a
+            href="https://wa.me/15551234567"
+            target="_blank"
+            class="nav-wa-pill desktop-only-wa"
+          >
+            <span class="wa-dot"></span>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Slide Navigation Drawer -->
+    <div
+      class="mobile-drawer-overlay"
+      id="mobileDrawerOverlay"
+      onclick="toggleMobileMenu()"
+    ></div>
+    <aside class="mobile-side-drawer" id="mobileSideDrawer">
+      <div class="mobile-drawer-head">
+        <div class="brand-identity">
+          <span class="brand-monogram">⚜</span>
+          <span class="brand-title">AURA</span>
+        </div>
+        <button
+          class="close-mobile-btn"
+          onclick="toggleMobileMenu()"
+          aria-label="Close Menu"
+        >
+          &times;
+        </button>
+      </div>
+
+      <ul class="mobile-nav-list">
+        <li><a href="/index.html" onclick="toggleMobileMenu()">Home</a></li>
+        <li>
+          <a href="/shop.html" class="active" onclick="toggleMobileMenu()"
+            >Shop Collection</a
+          >
+        </li>
+        <li><a href="/about.html" onclick="toggleMobileMenu()">About Us</a></li>
+        <li>
+          <a href="/contact.html" onclick="toggleMobileMenu()"
+            >Contact Concierge</a
+          >
+        </li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <a
+          href="https://wa.me/15551234567"
+          target="_blank"
+          class="mobile-wa-direct-btn"
+        >
+          Chat on WhatsApp 💬
+        </a>
+        <p class="mobile-drawer-note">
+          Fast Express Shipping • 100% Authentic Extrait
+        </p>
+      </div>
+    </aside>
+    <!-- =========================================================================
+       2. DYNAMIC PRODUCT DETAILS CONTAINER
+       ========================================================================= -->
+    <main class="product-detail-container" id="productDetailMain">
+      <div class="breadcrumb">
+        <a href="/index.html">Home</a> <span>/</span>
+        <a href="/shop.html">Shop</a> <span>/</span>
+        <strong id="bcProductName">Loading...</strong>
+      </div>
+
+      <div class="product-layout-grid">
+        <!-- Left: Dynamic Image Gallery -->
+        <div class="product-gallery">
+          <div class="main-image-stage">
+            <div class="product-halo" id="dynHalo"></div>
+            <img
+              src="/images/flora.jpg"
+              alt="Perfume Bottle"
+              id="mainProductImg"
+              onerror="this.src = '/images/hero-bg.jpg'"
+            />
+          </div>
+
+          <!-- Dynamic Thumbnails Container -->
+          <div class="gallery-thumbnails" id="dynThumbnailsContainer"></div>
+        </div>
+
+        <!-- Right: Dynamic Product Information -->
+        <div class="product-info-panel">
+          <span class="product-kicker" id="dynBadge">EXTRAIT DE PARFUM</span>
+          <h1 class="p-title" id="dynName">Perfume Name</h1>
+          <p class="p-family" id="dynCategory">CATEGORY</p>
+
+          <div class="p-price-row">
+            <span class="current-price" id="displayPrice">Rs. 0</span>
+            <span class="stock-pill stock-ok" id="dynStockPill">In Stock</span>
+            <span class="batch-badge">Pure Essence 2026</span>
+          </div>
+
+          <p class="p-description" id="dynDescription">
+            Loading perfume formulation details...
+          </p>
+
+          <!-- Volume Switcher -->
+          <div class="option-block">
+            <label class="option-label">Select Volume</label>
+            <div class="volume-selector">
+              <button
+                class="vol-btn active"
+                id="btn50ml"
+                onclick="selectDynamicVolume('50ml', 1, this)"
+              >
+                <span class="vol-size">50 ml</span>
+                <span class="vol-tag">Standard Edition</span>
+              </button>
+              <button
+                class="vol-btn"
+                id="btn100ml"
+                onclick="selectDynamicVolume('100ml', 1.7, this)"
+              >
+                <span class="vol-size">100 ml</span>
+                <span class="vol-tag">Royal Reserve</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quantity & Add to Cart/Wishlist -->
+          <div class="p-action-group">
+            <div class="quantity-box">
+              <button onclick="changeDynamicQty(-1)">-</button>
+              <input type="number" id="detailQty" value="1" readonly />
+              <button onclick="changeDynamicQty(1)">+</button>
+            </div>
+
+            <button
+              class="btn-direct-order"
+              onclick="addCurrentProductToCart()"
+            >
+              + Add to Bag
+            </button>
+
+            <button
+              class="btn-wishlist-action"
+              onclick="toggleCurrentProductWishlist()"
+              title="Save to Wishlist"
+            >
+              ♥ Save
+            </button>
+          </div>
+
+          <div class="product-perks-box">
+            <div class="perk-row">
+              <span>✓ Free Express Shipping</span> •
+              <span>Nationwide delivery in 48-72 hours</span>
+            </div>
+            <div class="perk-row">
+              <span>✓ 100% Pure Perfume Oils</span> •
+              <span>Long lasting fragrance that stays all day</span>
+            </div>
+            <div class="perk-row">
+              <span>✓ Cash on Delivery</span> •
+              <span>Pay at your doorstep</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic Scent Notes Pyramid -->
+      <section class="olfactory-pyramid-block">
+        <div class="section-header">
+          <span class="section-tag">SCENT CHRONOLOGY</span>
+          <h2 class="section-title">Olfactory Structure</h2>
+        </div>
+
+        <div class="pyramid-cards-grid">
+          <div class="pyramid-tier">
+            <span class="tier-phase">01 • THE OPENING (15 - 30 MINS)</span>
+            <h3>Top Notes</h3>
+            <p id="dynTopNotes">Fresh Bergamot, Pink Pepper, Light Fruits</p>
+          </div>
+          <div class="pyramid-tier">
+            <span class="tier-phase">02 • THE HEART (2 - 7 HOURS)</span>
+            <h3>Heart Notes</h3>
+            <p id="dynHeartNotes">Natural Flowers, Damask Rose, Warm Spices</p>
+          </div>
+          <div class="pyramid-tier">
+            <span class="tier-phase">03 • THE REVELATION (8 - 18 HOURS)</span>
+            <h3>Base Notes</h3>
+            <p id="dynBaseNotes">Rich Amber, Aged Oud, Sandalwood & Vanilla</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dynamic Reviews Section (Connected to this perfume ID) -->
+      <section class="product-reviews-section">
+        <div class="section-header">
+          <span class="section-tag">CUSTOMER FEEDBACK</span>
+          <h2 class="section-title">Customer Reviews</h2>
+        </div>
+
+        <div class="reviews-split-grid">
+          <!-- Leave Review Form -->
+          <div class="write-review-card">
+            <h3>Leave a Review</h3>
+            <p class="admin-subtext">
+              Share your thoughts on the lasting power and smell.
+            </p>
+
+            <form onsubmit="handleDynamicReviewSubmit(event)">
+              <div class="form-field">
+                <label>Your Name *</label>
+                <input
+                  type="text"
+                  id="revAuthor"
+                  placeholder="e.g. Asad Malik"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label>Rating</label>
+                <select id="revRating">
+                  <option value="5">★★★★★ (5 Stars - Amazing)</option>
+                  <option value="4">★★★★☆ (4 Stars - Very Good)</option>
+                  <option value="3">★★★☆☆ (3 Stars - Average)</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label>Your Review *</label>
+                <textarea
+                  id="revComment"
+                  rows="3"
+                  placeholder="Tell us how long it lasted and how it smells..."
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="btn-gold"
+                style="width: 100%; margin-top: 0.5rem"
+              >
+                Post Review
+              </button>
+            </form>
+          </div>
+
+          <!-- Live Reviews List -->
+          <div class="reviews-feed" id="reviewsContainer">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Cart Drawer -->
+    <div
+      class="drawer-overlay"
+      id="cartOverlay"
+      onclick="closeCartDrawer()"
+    ></div>
+    <aside class="side-drawer" id="cartDrawer">
+      <div class="drawer-top">
+        <h3>Your Shopping Bag (<span id="cartDrawerCount">0</span>)</h3>
+        <button class="close-drawer-btn" onclick="closeCartDrawer()">
+          &times;
+        </button>
+      </div>
+      <div class="drawer-items-list" id="cartItemsContainer"></div>
+      <div class="drawer-footer-checkout">
+        <div class="cart-total-row">
+          <span>Total Amount:</span>
+          <strong id="cartTotalPrice">Rs. 0</strong>
+        </div>
+        <button
+          class="btn-whatsapp-confirm"
+          onclick="checkoutCartViaWhatsApp()"
+        >
+          Order All Items on WhatsApp 💬
+        </button>
+        <small class="whatsapp-note"
+          >Clicking will open WhatsApp with all items and total amount
+          pre-filled!</small
+        >
+      </div>
+    </aside>
+
+    <!-- Wishlist Drawer -->
+    <div
+      class="drawer-overlay"
+      id="wishlistOverlay"
+      onclick="closeWishlistDrawer()"
+    ></div>
+    <aside class="side-drawer" id="wishlistDrawer">
+      <div class="drawer-top">
+        <h3>Your Saved Perfumes (<span id="wishlistDrawerCount">0</span>)</h3>
+        <button class="close-drawer-btn" onclick="closeWishlistDrawer()">
+          &times;
+        </button>
+      </div>
+      <div class="drawer-items-list" id="wishlistItemsContainer"></div>
+    </aside>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <span class="logo-main">AURA</span>
+          <p class="footer-about">
+            High quality long-lasting perfumes made with rich oils and beautiful
+            bottles. Safe and fast delivery across the country.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/shop.html">All Perfumes</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Help</h4>
+          <p>Email: info@fragrance.com</p>
+          <p>Phone: +1 (555) 123-4567</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AURA ATELIER. All Rights Reserved.</p>
+        <p class="developer-credit">
+          Crafted with precision by
+          <a
+            href="https://sanajaved-dev.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sana Javed
+          </a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="/main.js"></script>
+    <script src="/product.js"></script>
+  </body>
+</html>
