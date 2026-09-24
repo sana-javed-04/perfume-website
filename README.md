@@ -2,7 +2,7 @@
 
 > An ultra-luxury, high-performance artisanal fragrance e-commerce web platform engineered with vanilla web technologies and responsive design.
 
-[![Developer Portfolio](https://img.shields.io/badge/Demo-Live%20Store-d4af37?style=for-the-badge)](https://sanajaved-dev.vercel.app/)
+[![Portfolio](https://img.shields.io/badge/PORTFOLIO-Sana%20Javed-d4af37?style=for-the-badge&logo=vercel&logoColor=black)](https://sanajaved-dev.vercel.app/)
 
 ---
 
