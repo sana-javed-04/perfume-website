@@ -126,3 +126,13 @@ window.resetFilters = function () {
 document.addEventListener("DOMContentLoaded", () => {
   renderCatalog(FRAGRANCE_DATABASE);
 });
+
+// Expose shop-specific functions for HTML onclick attributes
+window.setCategory =
+  typeof setCategory !== "undefined" ? setCategory : () => {};
+window.handleSearch =
+  typeof handleSearch !== "undefined" ? handleSearch : () => {};
+window.handleSortChange =
+  typeof handleSortChange !== "undefined" ? handleSortChange : () => {};
+window.handlePriceFilter =
+  typeof handlePriceFilter !== "undefined" ? handlePriceFilter : () => {};

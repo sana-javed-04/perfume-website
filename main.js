@@ -593,3 +593,17 @@ window.toggleMobileMenu = function () {
     }
   }
 };
+
+// Expose all global interaction functions to window for HTML onclick attributes
+window.toggleMobileMenu =
+  typeof toggleMobileMenu !== "undefined" ? toggleMobileMenu : () => {};
+window.openCartDrawer =
+  typeof openCartDrawer !== "undefined" ? openCartDrawer : () => {};
+window.closeCartDrawer =
+  typeof closeCartDrawer !== "undefined" ? closeCartDrawer : () => {};
+window.openWishlistDrawer =
+  typeof openWishlistDrawer !== "undefined" ? openWishlistDrawer : () => {};
+window.closeWishlistDrawer =
+  typeof closeWishlistDrawer !== "undefined" ? closeWishlistDrawer : () => {};
+window.toggleTheme =
+  typeof toggleTheme !== "undefined" ? toggleTheme : () => {};
