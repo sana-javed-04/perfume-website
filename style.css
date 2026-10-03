@@ -2520,7 +2520,6 @@ a {
   font-size: 0.72rem;
   cursor: pointer;
   margin-left: 0.5rem;
-  width: auto !important;
   height: auto !important;
 }
 
@@ -6335,12 +6334,12 @@ body {
 .drawer-qty-row {
   display: flex !important;
   align-items: center !important;
-  gap: 0.45rem !important;
+  gap: 0.11rem !important;
   margin-top: 0.35rem !important;
 }
 
 .drawer-qty-row button {
-  width: 26px !important;
+  width: 17px !important;
   height: 26px !important;
   background: var(--bg-secondary) !important;
   border: 1px solid var(--border-color) !important;
@@ -6352,7 +6351,9 @@ body {
   align-items: center !important;
   justify-content: center !important;
 }
-
+.remove-link {
+  width: 36px !important;
+}
 .drawer-qty-row span {
   font-size: 0.82rem !important;
   min-width: 18px !important;
@@ -7068,5 +7069,49 @@ body {
     text-align: center;
     gap: 0.4rem;
     font-size: 0.72rem;
+  }
+}
+
+/* Quantity Plus/Minus buttons ONLY (not remove button) */
+.drawer-qty-row button:not(.remove-link) {
+  width: 24px !important;
+  height: 24px !important;
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  font-size: 0.85rem !important;
+  border-radius: 3px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+/* Remove Button Clean Style */
+.drawer-qty-row button.remove-link {
+  width: auto !important; /* 17px ko override karega */
+  min-width: fit-content !important;
+  height: auto !important;
+  background: none !important;
+  border: none !important;
+  color: #ff5252 !important;
+  font-size: 0.72rem !important;
+  cursor: pointer !important;
+  padding: 2px 6px !important;
+
+  display: inline-block !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  text-decoration: none !important;
+}
+
+.drawer-qty-row button.remove-link:hover {
+  text-decoration: underline !important;
+}
+@media screen and (max-width: 767px) {
+  .drawer-item-row {
+    grid-template-columns: 65px 0.8fr auto !important;
+    gap: 0.75rem !important;
   }
 }
